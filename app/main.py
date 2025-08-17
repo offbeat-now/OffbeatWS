@@ -31,10 +31,10 @@ app = FastAPI(
 # )
 
 # Add session middleware for OAuth flows
-app.add_middleware(
-    SessionMiddleware,
-    secret_key=settings.secret_key
-)
+# app.add_middleware(
+#     SessionMiddleware,
+#     secret_key=settings.secret_key
+# )
 
 # Include API routes
 
