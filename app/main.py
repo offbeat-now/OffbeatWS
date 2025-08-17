@@ -18,23 +18,21 @@ app = FastAPI(
     redoc_url="/redoc" if settings.debug else None,
 )
 
+
 # Add CORS middleware
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=["https://offbeat.tours/",
-#                    "https://offbeat.tours",
-#                    "https://www.offbeat.tours/",
-#                    "https://www.offbeat.tours"], 
-#     allow_credentials=True,
-#     allow_methods=["*"],
-#     allow_headers=["*"],
-# )
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=False,  
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Add session middleware for OAuth flows
-# app.add_middleware(
-#     SessionMiddleware,
-#     secret_key=settings.secret_key
-# )
+app.add_middleware(
+    SessionMiddleware,
+    secret_key=settings.secret_key
+)
 
 # Include API routes
 
